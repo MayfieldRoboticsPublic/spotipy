@@ -4,6 +4,7 @@ fpm \
   --input-type python \
   --output-type deb \
   --architecture native \
+  --python-disable-dependency \
   --python-install-bin "/usr/bin" \
   --python-install-lib "/usr/lib/python2.7/dist-packages" \
   --vendor "Mayfield Robotics" \
