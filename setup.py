@@ -5,8 +5,8 @@ setup(
     version='2.4.5',
     license='MIT_License',
     description='simple client for the Spotify Web API',
-    author='@plamere, @asetapen',
-    author_email='paul@echonest.com, adam@mayfieldrobotics.com',
+    author="@plamere",
+    author_email="paul@echonest.com",
     url='https://github.com/MayfieldRoboticsPublic/spotipy',
     install_requires=[
         'requests>=2.3.0',
