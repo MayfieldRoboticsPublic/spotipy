@@ -6,7 +6,6 @@ fpm \
   --architecture native \
   --python-install-bin "/usr/bin" \
   --python-install-lib "/usr/lib/python2.7/dist-packages" \
-  --depends "python-requests, python-six" \
   --vendor "Mayfield Robotics" \
   --maintainer "Adam Setapen <adam@mayfieldrobotics.com>" \
   setup.py
