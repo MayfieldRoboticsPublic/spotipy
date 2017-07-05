@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package>
+  <name>spotipy</name>
+  <version>2.4.5</version>
+  <description>A python interface to the Spotify Web API.
+  </description>
+
+  <maintainer email="adam@mayfieldrobotics.com">Adam Setapen</maintainer>
+
+  <!-- One license tag required, multiple allowed, one license per tag -->
+  <!-- Commonly used license strings: -->
+  <!--   BSD, MIT, Boost Software License, GPLv2, GPLv3, LGPLv2.1, LGPLv3 -->
+  <license>MIT</license>
+
+  <author email="adam@mayfieldrobotics.com">Adam Setapen</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <!-- The export tag contains other, unspecified, tags -->
+  <export>
+    <!-- Other tools can request additional information be placed here -->
+  </export>
+</package>
