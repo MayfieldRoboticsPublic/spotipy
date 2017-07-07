@@ -893,3 +893,27 @@ class Spotify(object):
         data['device_id'] = device_id
         data['uris'] = [spotify_uri]
         return self._put("me/player/play", payload=data)
+
+    def pause(self):
+        '''
+        Pauses playback.
+        '''
+        return self._put("me/player/pause")
+
+    def play(self):
+        '''
+        Resumes playback.
+        '''
+        return self._put("me/player/play")
+
+    def next_track(self):
+        '''
+        Plays the next track in the context.
+        '''
+        return self._post("me/player/next")
+
+    def previous_track(self):
+        '''
+        Plays the previous track in the context.
+        '''
+        return self._post("me/player/previous")
