@@ -876,7 +876,7 @@ class Spotify(object):
         results = self._get('me/player/devices')
         return results
 
-    def set_device(self, device_id, play=True):
+    def set_device(self, device_id, play=False):
         '''
         Set the active device, with an optional play parameter.
         '''
@@ -885,13 +885,14 @@ class Spotify(object):
         data['play'] = play
         return self._put("me/player", payload=data)
 
-    def play_track(self, device_id, spotify_uri):
+    def play_track(self, spotify_uri, device_id=None):
         '''
         Play a track on a specified device.
         '''
         data = {}
-        data['device_id'] = device_id
         data['uris'] = [spotify_uri]
+        if device_id:
+            data['device_id'] = device_id
         return self._put("me/player/play", payload=data)
 
     def pause(self):
