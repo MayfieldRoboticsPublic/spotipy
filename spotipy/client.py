@@ -895,6 +895,20 @@ class Spotify(object):
             data['device_id'] = device_id
         return self._put("me/player/play", payload=data)
 
+    def play_track_from_playlist(self, playlist_uri, offset, device_id=None):
+        '''
+        Plays a track from a playlist at a given offeset
+        '''
+        data = {}
+        offset_map = {'position': offset}
+        data['context_uri'] = playlist_uri
+        data['offset'] = offset_map
+
+        device_args = None
+        if device_id:
+            device_args = {'device_id': device_id}
+        return self._put("me/player/play", args=device_args, payload=data)
+
     def pause(self):
         '''
         Pauses playback.
