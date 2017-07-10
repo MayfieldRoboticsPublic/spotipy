@@ -876,7 +876,7 @@ class Spotify(object):
         results = self._get('me/player/devices')
         return results
 
-    def set_device(self, device_id, play=True):
+    def set_device(self, device_id, play=False):
         '''
         Set the active device, with an optional play parameter.
         '''
@@ -885,11 +885,50 @@ class Spotify(object):
         data['play'] = play
         return self._put("me/player", payload=data)
 
-    def play_track(self, device_id, spotify_uri):
+    def play_track(self, spotify_uri, device_id=None):
         '''
         Play a track on a specified device.
         '''
         data = {}
-        data['device_id'] = device_id
         data['uris'] = [spotify_uri]
+        if device_id:
+            data['device_id'] = device_id
         return self._put("me/player/play", payload=data)
+
+    def play_track_from_playlist(self, playlist_uri, offset, device_id=None):
+        '''
+        Plays a track from a playlist at a given offeset
+        '''
+        data = {}
+        offset_map = {'position': offset}
+        data['context_uri'] = playlist_uri
+        data['offset'] = offset_map
+
+        device_args = None
+        if device_id:
+            device_args = {'device_id': device_id}
+        return self._put("me/player/play", args=device_args, payload=data)
+
+    def pause(self):
+        '''
+        Pauses playback.
+        '''
+        return self._put("me/player/pause")
+
+    def play(self):
+        '''
+        Resumes playback.
+        '''
+        return self._put("me/player/play")
+
+    def next_track(self):
+        '''
+        Plays the next track in the context.
+        '''
+        return self._post("me/player/next")
+
+    def previous_track(self):
+        '''
+        Plays the previous track in the context.
+        '''
+        return self._post("me/player/previous")
