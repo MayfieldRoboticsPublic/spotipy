@@ -892,10 +892,8 @@ class Spotify(object):
         data = {}
         data['uris'] = [spotify_uri]
         if device_id:
-            device_args = {'device_id': device_id}
-            return self._put("me/player/play", args=device_args, payload=data)
-        else:
-            return self._put("me/player/play", payload=data)
+            data['device_id'] = device_id
+        return self._put("me/player/play", payload=data)
 
     def pause(self):
         '''
